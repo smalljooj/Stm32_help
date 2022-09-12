@@ -31,6 +31,10 @@ Essa estrutura possui diversos campos:
 A HAL possui diversos defines já prontos para ajudar na configuração, eles estarão descritos 
 ao final do arquivo, para melhor navegação utilize os tópicos que estão acima.
 
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## Expecificando o Pino
 
 Para definir o pino podemos utilizar o código abaixo apenas colocando o número do pino no lugar do 'x':  
