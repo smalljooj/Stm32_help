@@ -4,6 +4,7 @@
 - Configurar o Modo do Pino (lembrando que são do 0 ao 15)
 - Definir velocidade de Saída (caso o modo for de saída)
 - Definir o tipo de saída (novamente se o modo for de saída)
+- Definir o resistor de pull up/down
 
 ## Habilitando o Clock do GPIO
 
@@ -37,3 +38,63 @@ podem ser:
 Para definir o pino 2 do GPIOA como saida, pode ser feito da seguinte forma:  
 `GPIOA->MODER |= 0x0010 // em binário ficaria assim -> 0b00010000`
 
+## Definindo a velocidade da saída
+
+Podemos controlar o tempo em que a saída muda de estado, por exemplo de 0 para 1.
+
+É feito usando o modulo do GPIO em questão, e o registrador OSPEEDR
+
+![OSPEEDR](../imagens/OSPEEDR.PNG)
+
+Nesse registrador cada par de bits representa a velocidade do bit em questão, estas velocidades
+podem ser:
+
+- 00 -> Low Speed (Baixa Velocidade)
+- 01 -> Medium Speed (Média Velocidade)
+- 10 -> High Speed (Alta velocidade)
+- 11 -> Very High Speed ("Extrema" velocidade)
+
+Para definir o pino 2 do GPIOA como Extrema velocidade, pode ser feito da seguinte forma:  
+`GPIOA->OSPEEDR |= 0x0030 // em binário ficaria assim -> 0b00110000`
+
+> Obs: Quanto maior for a velocidade, maior será o ruído na transição de estado.
+
+## Definindo o tipo da saída
+
+Existem dois tipos de saída a push pull que é a padrão e a open drain. 
+
+- Push Pull -> ambos os níveis lógicos são comutados, ou seja 0 -> 0V e 1 -> 3.3V
+- Open Drain -> apenas um é comutado, por exemplo 0 -> 0V e 1 -> alta impedância.
+
+É feito usando o modulo do GPIO em questão, e o registrador OTYPER
+
+![OTYPER](../imagens/OTYPER.PNG)
+
+Nesse registrador cada bits representa o tipo da saída do pino em questão, estes tipos
+podem ser:
+
+- 0 -> Push Pull (Saída push pull)
+- 1 -> Open Drain (Saída de dreno aberto)
+
+
+Para definir o pino 2 do GPIOA como Open Drain, pode ser feito da seguinte forma:  
+`GPIOA->OTYPER |= 0x0004 // em binário ficaria assim -> 0b00000100`
+
+
+## Configurando o Resistor de Pull Up/Down
+
+No pino em questão pode haver resistores de pull up e pull down internos. Para habilita-los
+usamos o modulo do GPIO em questão, e o registrador PUPDR
+
+![PUPDR](../imagens/PUPDR.PNG)
+
+Nesse registrador cada par de bits representa o Resistor que será habilitado do bit em questão, 
+estes podem ser:
+
+- 00 -> NO PULL UP/Down (Sem resistor de pull up/down)
+- 01 -> Pull Up (Resistor de Pull Up)
+- 10 -> Pull Down (Resistor de Pull Down)
+- 11 -> Reserved (Reservado e não pode ser usado)
+
+Para definir o pino 2 do GPIOA com um resistor de pull down, pode ser feito da seguinte forma:  
+`GPIOA->PUPDR |= 0x0020 // em binário ficaria assim -> 0b00100000`
