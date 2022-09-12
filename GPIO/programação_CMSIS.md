@@ -13,7 +13,7 @@ no barramento HB1 que é o barramento de alta velocidade onde os GPIOs estão co
 O Registrador é chamado de HB1ENR e com ele podemos habilitar e configurar alguns periféricos.
 Os GPIOs são habilitados em ordem alfabetica do bit 0 ao bit 8.
 
-![HB1ENR](../imagens/HB1ENR.png)
+![HB1ENR](../imagens/HB1ENR.PNG)
 
 Para por exemplo habilitar o GPIOA, podemos escrever o seguinte:  
 `RCC->HB1ENR |= 0x1`
