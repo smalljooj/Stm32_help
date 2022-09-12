@@ -3,7 +3,7 @@
 - [Configurar o GPIO](#Configurando-o-GPIO)
 - [Usar o GPIO](#Usando-o-GPIO)
 
-# Configurando GPIO
+# Configurando o GPIO
 
 Para configurar o gpio para o uso, seguimos os seguinte passos:
 
