@@ -20,3 +20,20 @@ Para por exemplo habilitar o GPIOA, podemos escrever o seguinte:
 
 Isso irá habilitar apenas o GPIOA sem interferir em nenhuma outra configuração.
 
+## Configurando o Modo
+
+É feito usando o modulo do GPIO em questão, e o registrador MODER
+
+![MODER](../imagens/MODER.PNG)
+
+Nesse registrador cada par de bits representa o modo do bit em questão, estes modos
+podem ser:
+
+- 00 -> INPUT (Entrada)
+- 01 -> OUTPUT (Saída)
+- 10 -> FUNCTION (Função)
+- 11 -> ANALOG (Analógica)
+
+Para definir o pino 2 do GPIOA como saida, pode ser feito da seguinte forma:  
+`GPIOA->MODER |= 0x0010 // em binário ficaria assim -> 0b00010000`
+
