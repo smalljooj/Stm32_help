@@ -1,10 +1,10 @@
 # A programação em CMSIS é feita nas seguintes etapas
 
-- Habilitar o clock do GPIO
-- Configurar o Modo do Pino (lembrando que são do 0 ao 15)
-- Definir velocidade de Saída (caso o modo for de saída)
-- Definir o tipo de saída (novamente se o modo for de saída)
-- Definir o resistor de pull up/down
+- [Habilitar o clock do GPIO](## Habilitando o Clock do GPIO)
+- [Configurar o Modo do Pino](## Configurando o Modo) (lembrando que são do 0 ao 15)
+- [Definir velocidade de Saída](## Definindo a velocidade da saída) (caso o modo for de saída)
+- [Definir o tipo de saída](## Definindo o tipo da saída) (novamente se o modo for de saída)
+- [Definir o resistor de pull up/down](## Configurando o Resistor de Pull Up/Down)
 
 ## Habilitando o Clock do GPIO
 
