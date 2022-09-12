@@ -107,3 +107,40 @@ Para definir o pino 2 do GPIOA com um resistor de pull down, pode ser feito da s
 `GPIOA->PUPDR |= 0x0020 // em binário ficaria assim -> 0b00100000`
 
 # Usando o GPIO
+
+- [Escrever no Pino](#Escrevendo-no-Pino)
+- [Ler o Pino](#Lendo-o-Pino)
+
+## Escrevendo no Pino
+
+Para escrever no pino podemos usar dois registrados o ODR e o BSRR.
+
+Para escrever com o ODR atribuimos o nível que queremos no pino do registrador
+
+![ODR](../imagens/ODR.PNG)
+
+Para setar o pino 6 para nivel logico alto podemos usar o seguinte código:  
+`GPIOx->ODR |= 0x0040`
+
+> Sendo que substituimos o 'x' pela letra do GPIO
+
+O BSRR é diferente, ele pode ser separado em duas partes de 16 bits, a primeira reseta o pino e a segunda
+seta o pino para nivel logico alto
+
+![BSRR](../imagens/BSRR.PNG)
+
+Para setar o pino 6 para nivel logico alto podemos usar o seguinte código:  
+`GPIOx->BSRR = 0x0040`  
+
+E para resetar:  
+`GPIOx->BSRR = 0x00400000`
+
+## Lendo o Pino
+
+Para ler o pino podemos usar o registrado IDR, ele irá retornar o nível lógico de todos os pinos,
+e é interessante usar uma máscara para que fique apenas aqueles que desejamos.
+
+![IDR](../imagens/IDR.PNG)
+
+Podemos usar o seguinte código para ler o pino 6:  
+`uint16_t leitura = (GPIOx->IDR & 0x0040)`
