@@ -1,4 +1,11 @@
-# A programação em CMSIS é feita nas seguintes etapas
+# Programação em CMSIS 
+
+- [Configurar o GPIO](#Configurando-o-GPIO)
+- [Usar o GPIO](#Usando-o-GPIO)
+
+# Configurando GPIO
+
+Para configurar o gpio para o uso, seguimos os seguinte passos:
 
 - [Habilitar o clock do GPIO](#Habilitando-o-Clock-do-GPIO)
 - [Configurar o Modo do Pino](#Configurando-o-Modo) (lembrando que são do 0 ao 15)
@@ -84,6 +91,8 @@ Para definir o pino 2 do GPIOA como Open Drain, pode ser feito da seguinte forma
 ## Configurando o Resistor de Pull Up/Down
 
 No pino em questão pode haver resistores de pull up e pull down internos. Para habilita-los
+
+# Configurando o GPIO
 usamos o modulo do GPIO em questão, e o registrador PUPDR
 
 ![PUPDR](../imagens/PUPDR.PNG)
