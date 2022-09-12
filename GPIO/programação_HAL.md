@@ -24,7 +24,7 @@ Essa estrutura possui diversos campos:
 
 - [Pin](#Expecificando-o-Pino) -> Define o Pino
 - [Mode](#Expecificando-o-Modo) -> O modo do Pino
-- [Pull](#Expecificando-o-Resistor-Pull-Up/Down) -> O resistor de Pull Up/Down
+- [Pull](#Expecificando-o-Resistor-Pull-UpDown) -> O resistor de Pull Up/Down
 - [Speed](#Expecificando-a-Velocidade) -> A velocidade da saída
 - [Alternate](#Expecificando-a-Função) -> A função alternativa
 
