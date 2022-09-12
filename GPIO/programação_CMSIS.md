@@ -91,8 +91,6 @@ Para definir o pino 2 do GPIOA como Open Drain, pode ser feito da seguinte forma
 ## Configurando o Resistor de Pull Up/Down
 
 No pino em questão pode haver resistores de pull up e pull down internos. Para habilita-los
-
-# Configurando o GPIO
 usamos o modulo do GPIO em questão, e o registrador PUPDR
 
 ![PUPDR](../imagens/PUPDR.PNG)
@@ -107,3 +105,5 @@ estes podem ser:
 
 Para definir o pino 2 do GPIOA com um resistor de pull down, pode ser feito da seguinte forma:  
 `GPIOA->PUPDR |= 0x0020 // em binário ficaria assim -> 0b00100000`
+
+# Usando o GPIO
