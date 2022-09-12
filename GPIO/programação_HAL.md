@@ -32,7 +32,6 @@ A HAL possui diversos defines já prontos para ajudar na configuração, eles es
 ao final do arquivo, para melhor navegação utilize os tópicos que estão acima.
 
 
-
 ## Inicializando o Pino
 
 Ao finalizar a configuração podemos inicializar o pino com o seguinte código:  
@@ -43,7 +42,9 @@ para extrair e passar o endereço dela.
 
 &nbsp;
 
-## Expecificando o Pino
+# Macros
+
+### Expecificando o Pino
 
 Para definir o pino podemos utilizar o código abaixo apenas colocando o número do pino no lugar do 'x':  
 `GPIO_Pin_x`
@@ -51,7 +52,8 @@ Para definir o pino podemos utilizar o código abaixo apenas colocando o número
 Configurando o pino 6 e o 7:  
 `gpio_struct.Pin = GPIO_Pin_6 | GPIO_Pin_7`
 
-## Expecificando o Modo
+
+### Expecificando o Modo
 
 Para definir o modo podemos utilizar as seguintes macros: 
 
@@ -71,7 +73,7 @@ Para definir o modo podemos utilizar as seguintes macros:
 Configurando o modo para saida Push Pull:  
 `gpio_struct.Mode = GPIO_MODE_OUTPUT_PP`
 
-## Expecificando o Resistor Pull Up/Down
+### Expecificando o Resistor Pull Up/Down
 
 Para definir o resitor de Pull Up/Down podemos utilizar as seguintes macros: 
 
@@ -82,7 +84,7 @@ Para definir o resitor de Pull Up/Down podemos utilizar as seguintes macros:
 Configurando o Resitor para Resitor de Pull Up:  
 `gpio_struct.Pull = GPIO_PULLUP`
 
-## Expecificando a Velocidade
+### Expecificando a Velocidade
 
 Para definir a velocidade podemos utilizar as seguintes macros: 
 
@@ -94,7 +96,7 @@ Para definir a velocidade podemos utilizar as seguintes macros:
 Configurando a velocidade para Extrema:  
 `gpio_struct.Speed = GPIO_SPEED_FREQ_VERY_HIGH`
 
-## Expecificando a Função
+### Expecificando a Função
 
 Para definir a função alternativa podemos utilizar as seguintes macros, porém
 para utilizar devemos ver qual a função que é permitida naquele pino que vamos
