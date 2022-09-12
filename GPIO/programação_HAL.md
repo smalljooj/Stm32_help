@@ -1,8 +1,8 @@
 # A programação em HAL é feita nas seguintes etapas
 
-- Habilitar o clock do GPIO
-- Configurar o Pino do GPIO
-- Inicializar o Pino
+- [Habilitar o clock do GPIO](#Habilitando-o-Clock-do-GPIO)
+- [Configurar o Pino do GPIO](#Configurando-o-Pino-do-GPIO)
+- [Inicializar o Pino](#Inicializando-o-Pino)
 
 ## Habilitando o Clock do GPIO
 
@@ -31,8 +31,16 @@ Essa estrutura possui diversos campos:
 A HAL possui diversos defines já prontos para ajudar na configuração, eles estarão descritos 
 ao final do arquivo, para melhor navegação utilize os tópicos que estão acima.
 
-&nbsp;
-&nbsp;
+
+
+## Inicializando o Pino
+
+Ao finalizar a configuração podemos inicializar o pino com o seguinte código:  
+`HAL_GPIO_Init(GPIOx, &gpio_struct)`
+
+> Obs: Substitura o x pela letra do gpio em questão, e ao passar a estrutura use o '&' 
+para extrair e passar o endereço dela.
+
 &nbsp;
 
 ## Expecificando o Pino
