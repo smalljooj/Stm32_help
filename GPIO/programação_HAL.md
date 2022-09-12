@@ -48,6 +48,50 @@ para extrair e passar o endereço dela.
 
 # Usando o GPIO
 
+- [Escrever no Pino](#Escrevendo-no-Pino)
+- [Ler o Pino](#Lendo-o-Pino)
+- [Exceções](#Exceções)
+
+Uma função que não se encaixa nessas categorias mas que é importante é o LockPin, que 
+trava o Pino.  
+`HAL_GPIO_LockPin()`
+
+## Escrevendo no Pino
+
+Para escrever no Pino Podemos usar duas funções a WritePin e a TogglePin.
+
+### HAL_GPIO_WritePin()
+
+Nela passamos 3 parametros: o GPIO, o Pino e o Nível Lógico.
+
+Para setar usamos essa forma:  
+`Hal_GPIO_WritePin(GPIOx, GPIO_PIN_x, GPIO_PIN_SET)`
+
+E para resetar:  
+`Hal_GPIO_WritePin(GPIOx, GPIO_PIN_x, GPIO_PIN_RESET)`
+
+### HAL_GPIO_TogglePin()
+
+Essa função inverte o nível lógico da saída, se é 1 torna-se 0, e se é 0 torna-se 1.
+
+Nela passamos 2 parametros: o GPIO, o Pino.  
+`Hal_GPIO_TogglePin(GPIOx, GPIO_PIN_x)`
+
+
+## Lendo o Pino
+
+Para ler o Pino usamos a Função HAL_GPIO_ReadPin(), passando o GPIO e o Pino, e ela
+retorna o nível lógico.
+
+Exemplo de código:  
+`HAL_GPIO_ReadPin(GPIOx, GPIO_PIN_x)`
+
+## Exceções
+
+Temos outras duas funcões para tratamento de Exceções, que são o Handler de exceções EXTI
+e o CallBack que serão tratadas em outros assuntos.
+
+
 &nbsp;
 
 # Macros
