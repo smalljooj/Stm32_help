@@ -46,7 +46,7 @@ Ao finalizar a configuração podemos inicializar o pino com o seguinte código:
 > Obs: Substitura o x pela letra do gpio em questão, e ao passar a estrutura use o '&' 
 para extrair e passar o endereço dela.
 
-#Usando-o-GPIO
+# Usando o GPIO
 
 &nbsp;
 
