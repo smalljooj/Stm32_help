@@ -24,7 +24,7 @@ Os ADCs são habilitados em ordem alfabetica do bit 8 ao bit 10.
 
 ![APB2ENR](../imagens/APB2ENR.PNG)
 
-Para por exemplo habilitar o ADC1, podemos escrever o seguinte:
+Para por exemplo habilitar o ADC1, podemos escrever o seguinte:  
 `RCC->APB2ENR |= 0x0100`
 
 Isso irá habilitar apenas o ADC1 sem interferir em nenhuma outra configuração.
@@ -36,8 +36,8 @@ o clock no GPIOx e depois colocar usando o registrador MODER o pino como Analogi
 
 ![AHB1ENR](../imagens/HB1ENR.PNG)
 
-Exemplo de código:
-´RCC->AHB1ENR |= 0x01´
+Exemplo de código:  
+`RCC->AHB1ENR |= 0x01`
 
 ![MODER](../imagens/MODER.PNG)
 
@@ -49,7 +49,7 @@ podem ser:
 - 10 -> FUNCTION (Função)
 - 11 -> ANALOG (Analógica)
 
-Para definir o pino 0 do GPIOA como Analógico, pode ser feito da seguinte forma:
+Para definir o pino 0 do GPIOA como Analógico, pode ser feito da seguinte forma:  
 `GPIOA->MODER |= 0x0003 // em binário ficaria assim -> 0b00000011`
 
 ##
