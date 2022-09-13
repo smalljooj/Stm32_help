@@ -16,7 +16,7 @@ Para configurar o gpio para o uso, seguimos os seguinte passos:
 ## Habilitando o Clock do GPIO
 
 É feito usando o Módulo RCC(Reset and clock control) e o registrador que habilita o clock
-no barramento HB1 que é o barramento de alta velocidade onde os GPIOs estão conectados.
+no barramento AHB1 que é o barramento de alta velocidade onde os GPIOs estão conectados.
 
 O Registrador é chamado de AHB1ENR e com ele podemos habilitar e configurar alguns periféricos.
 Os GPIOs são habilitados em ordem alfabetica do bit 0 ao bit 8.
