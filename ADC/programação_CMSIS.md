@@ -57,7 +57,7 @@ Para definir o pino 0 do GPIOA como Analógico, pode ser feito da seguinte forma
 O clock do ADC é proveniente do APB2, porém pode ser dividido usando o preescaler
 do ADC, para configurar o preescaler devemos usar os bits 16 e 17 do registrador CCR do módulo ADC
 
-![ADC_CCR](../imagens/ADC_CCR.PNG)
+![ADC_CCR](../imagens/ADC_CCR.png)
 
 - 00 -> divide o clock por 2
 - 01 -> divide o clock por 4
@@ -103,9 +103,9 @@ Exemplo de código:
 Depois devemos configurar o tempo de Sampling dos canis, usando os registradores
 SMPR1 e SMPR2:
 
-![ADC_SMPR1](../imagens/ADC_SMPR1.PNG)
+![ADC_SMPR1](../imagens/ADC_SMPR1.png)
 
-![ADC_SMPR2](../imagens/ADC_SMPR2.PNG)
+![ADC_SMPR2](../imagens/ADC_SMPR2.png)
 
 - 000 -> 3 ciclos de clock
 - 001 -> 15 ciclos de clock
