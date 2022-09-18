@@ -114,7 +114,7 @@ Para configurar a quantidade de canais de conversão usando o ADC_SQR1, nos bits
 
 ![ADC_SQR1](../imagens/ADC_SQR1.PNG)
 
-Para uma única conversão é necessário.
+Para uma única conversão não é necessário.
 
 ### Configurar a sequencia
 
