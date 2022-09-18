@@ -8,9 +8,10 @@
 Para configurar o ADC para o uso, seguimos os seguinte passos:
 
 - [Habilitar o clock do ADC](#Habilitando-o-Clock-do-ADC)
-- [Configurar o Modo do Pino](#Configurando-o-Modo) (lembrando que são do 0 ao 15)
-- [Configurar o clock do ADC](#Configurando-o-clock-do-ADC) (caso o modo for de saída)
-- [Definir sequencia de conversão](#Definindo-sequencia-de-conversão) (novamente se o modo for de saída)
+- [Configurar o Modo do Pino](#Configurando-o-Modo) 
+- [Configurar o clock do ADC](#Configurando-o-clock-do-ADC) 
+- [Definir Resolução do ADC e Scan Mode](#Definindo-Resolução-do-ADC-e-Scan-Mode)
+- [Definir sequencia de conversão](#Definindo-sequencia-de-conversão)
 - [Definir tempo de amostragem](#Definir-tempo-de-amostragem)
 
 ## Habilitando o Clock do ADC
@@ -67,7 +68,7 @@ do ADC, para configurar o preescaler devemos usar os bits 16 e 17 do registrador
 Dividindo o clock por 4.  
 `ADC->CCR |= 0x10000`
 
-## Definindo Resolução do ADC
+## Definindo Resolução do ADC e Scan Mode
 
 Para converter as tensões passadas na entrada o ADC pode utilizar
 diferentes resoluções, a resolução vai definir a precisão do conversor
@@ -86,6 +87,13 @@ ADCx.
 
 Exemplo de configuração para 8 bits de resolução:  
 `ADCx->CR1 |= 0x02000000`
+
+### Scan Mode
+
+O Scan mode faz com que as entradas programadas nos registradores ADC_SQRx ou ADC_JSQRx sejam
+convertidas. Para habilitar escrevemos no bit 8 do registrador CR1:
+
+`ADCx->CR1 |= 0x0100`
 
 ## Definindo sequencia de conversão
 
