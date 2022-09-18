@@ -196,6 +196,4 @@ Criamos um loop para esperar até a conversão estar pronta para evitar problema
 
 Depois lemos a conversão usando o registrador DR do módulo ADCx
 
-![ADC_DR](../imagens/ADC_DR.PNG)
-
 `uint16_t leitura = ADCx->DR`
