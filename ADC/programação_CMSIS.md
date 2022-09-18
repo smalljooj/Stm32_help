@@ -110,7 +110,7 @@ Exemplo de código:
 
 ### Configurar a quantidade de canais 
 
-Para configurar a quantidade de canais de conversão usando o ADC_SQR1, no bit L  
+Para configurar a quantidade de canais de conversão usando o ADC_SQR1, nos bits L  
 
 ![ADC_SQR1](../imagens/ADC_SQR1.PNG)
 
