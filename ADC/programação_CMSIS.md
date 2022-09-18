@@ -37,7 +37,7 @@ o clock no GPIOx e depois colocar usando o registrador MODER o pino como Analogi
 ![AHB1ENR](../imagens/HB1ENR.PNG)
 
 Exemplo de código:  
-´RCC->AHB1ENR |= 0x01´
+`RCC->AHB1ENR |= 0x01`
 
 ![MODER](../imagens/MODER.PNG)
 
@@ -148,9 +148,9 @@ Depois de configurar tudo, devemos ligar e esperar um tempo para estabilizar.
 
 Exemplo de código:  
 
-  ADCx->CR2 |= 0x1
-  int delay = 10000
-  while(delay--);
+    ADCx->CR2 |= 0x1
+    int delay = 10000
+    while(delay--);
 
 
 # Usando o ADC
