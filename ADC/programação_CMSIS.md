@@ -10,8 +10,8 @@ Para configurar o ADC para o uso, seguimos os seguinte passos:
 - [Habilitar o clock do ADC](#Habilitando-o-Clock-do-ADC)
 - [Configurar o Modo do Pino](#Configurando-o-Modo) (lembrando que são do 0 ao 15)
 - [Configurar o clock do ADC](#Configurando-o-clock-do-ADC) (caso o modo for de saída)
-- [](#Definindo-o-tipo-da-saída) (novamente se o modo for de saída)
-- [](#Configurando-o-Resistor-de-Pull-Up/Down)
+- [Definir sequencia de conversão](#Definindo-sequencia-de-conversão) (novamente se o modo for de saída)
+- [Definir tempo de amostragem](#Definir-tempo-de-amostragem)
 
 ## Habilitando o Clock do ADC
 
@@ -100,7 +100,30 @@ precisamos desligar o ADC, fazemos isso usando o bit 0 do CR2 do módulo ADCx
 Exemplo de código:  
 `ADCx->CR2 &= ~0x1`
 
-Depois devemos configurar o tempo de Sampling dos canis, usando os registradores
+### Configurar a quantidade de canais 
+
+Para configurar a quantidade de canais de conversão usando o ADC_SQR1, no bit L  
+
+![ADC_SRQ1](../imagens/ADC_SRQ1.PNG)
+
+Para uma única conversão é necessário.
+
+### Configurar a sequencia
+
+Para configurar a sequencia de conversão usamos os registrados SQR3, SQR2 e SQR1 do
+módulo ADCx.
+
+![ADC_SQR3](../imagens/ADC_SQR3.PNG)
+![ADC_SQR2](../imagens/ADC_SQR2.PNG)
+![ADC_SQR1](../imagens/ADC_SQR1.PNG)
+
+Isso é usado para definir a sequencia para o dma, mas para conversão única, podemos
+definir no SQR3 nos primeiros 5 bits o canal que iremos utilizar, por exemplo:  
+`ADCx->SQR3 |= 0x01   // Define o canal 1`
+
+### Definir tempo de amostragem
+
+Depois devemos configurar o tempo de Sampling dos canais, usando os registradores
 SMPR1 e SMPR2:
 
 ![ADC_SMPR1](../imagens/ADC_SMPR1.png)
@@ -116,7 +139,20 @@ SMPR1 e SMPR2:
 - 110 -> 144 ciclos de clock
 - 111 -> 480 ciclos de clock
 
-Definindo o empo de 480 ciclos para o canal 0:  
+Definindo o tempo de 480 ciclos para o canal 0:  
 `ADCx->SMPR2 |= 0x07`
 
-# Usando o GPIO
+Depois de configurar tudo, devemos ligar e esperar um tempo para estabilizar.
+
+![ADC_CR2](../imagens/ADC_CR2.PNG)
+
+Exemplo de código:  
+
+  ADCx->CR2 |= 0x1
+  int delay = 10000
+  while(delay--);
+
+
+# Usando o ADC
+
+
