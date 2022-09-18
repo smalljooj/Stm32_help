@@ -104,7 +104,7 @@ Exemplo de código:
 
 Para configurar a quantidade de canais de conversão usando o ADC_SQR1, no bit L  
 
-![ADC_SRQ1](../imagens/ADC_SRQ1.PNG)
+![ADC_SQR1](../imagens/ADC_SQR1.PNG)
 
 Para uma única conversão é necessário.
 
@@ -155,4 +155,39 @@ Exemplo de código:
 
 # Usando o ADC
 
+Para usar o ADC devemos:  
 
+- [Limpar Status Register](#Limpando-Status-Register)
+- [Iniciar Conversão](#Iniciando-Conversão)
+- [Esperar a Conversão](#Esperando-a-Conversão)
+- [Ler a Conversão](#Lendo-a-Conversão)
+
+## Limpando Status Register
+
+Para podermos inicar a conversão devemos limpar o status register usando o 
+Módulo ADCx e o registrador SR:
+
+![ADC_SR](../imagens/ADC_SR.PNG)
+
+`ADCx->SR = 0`
+
+## Iniciando Conversão
+
+Para inicar a conversão usamos o Módulo ADCx e o bit 30 do registrador CR2:
+
+![ADC_CR2](../imagens/ADC_CR2.PNG)
+
+`ADCx->CR2 |= 0x40000000`
+
+## Esperando a Conversão
+
+Criamos um loop para esperar até a conversão estar pronta para evitar problemas:  
+`while(!(ADCx-SR & 0x1))`
+
+## Lendo a Conversão
+
+Depois lemos a conversão usando o registrador DR do módulo ADCx
+
+![ADC_DR](../imagens/ADC_DR.PNG)
+
+`uint16_t leitura = ADCx->DR`
