@@ -83,7 +83,7 @@ As funções são:
 ![Funções](../imagens/Funções.PNG)
 
 
-Para definir o pino PA2 e PA3 do como Usart, pode ser feito da seguinte forma:  
+Para definir o pino PA2 e PA3 como Usart, pode ser feito da seguinte forma:  
 
     GPIOA->MODER |= 0x00A0 // em binário ficaria assim -> 0b10100000
     GPIOA->AFRL |= 0x7700 // em binário ficaria assim -> 0b0111011100000000
