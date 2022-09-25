@@ -39,7 +39,7 @@ Usando o RCC AHB1ENR:
 
 ![AHB1ENR](../imagens/HB1ENR.PNG)
 
-Depois configuramos o Modo, usndo o GPIOx->MODER.
+Depois configuramos o Modo, usando o GPIOx->MODER.
 
 ![MODER](../imagens/MODER.PNG)
 
