@@ -54,7 +54,8 @@ podem ser:
 Devemos colocar como função auxiliar.
 
 Depois devemos configurar a função que irá receber, isto é feito usando 2 registradores o AFRH
-e o AFRL, sendo o L a parte dos bits menos significativos e o H os mais significativos.
+e o AFRL, sendo o L a parte dos bits menos significativos e o H os mais significativos. Dependendo
+da IDE esses dois registradores podem ser unidos em um array de duas posições, AFR[0] e AFR[1].
 
 
 ![AFRH](../imagens/AFRH.PNG)
