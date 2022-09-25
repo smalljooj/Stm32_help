@@ -116,7 +116,7 @@ de 8 usamos o bit 15 do registrador CR1 do Módulo Usartx.
 
 Então com o oversampling padrão de 16 e o clock padrão de 16MHz usando o baud rate de 9600, temos:
 
-Ex: `float div = 16000000 / (16 * 9600) // div será igual a 104.16667`
+Ex: `float div = 16000000 / (16.0 * 9600) // div será igual a 104.16667`
 
 A parte inteira será colocada na mantissa:
 
@@ -125,8 +125,18 @@ A parte inteira será colocada na mantissa:
 A parte fracionaria devemos multiplicar por 16 e arredondar. Para isso podemos somar 0.5 e truncar para inteiro, pois
 ao truncar ele sempre "arredonda" para baixo.
 
-`Usart2->BRR |= (int) (div + 0.5)` 
+`Usart2->BRR |= (int) (((div - (int) div) * 16) + 0.5)` 
 
 Assim configuramos o baud rate de 9600 para Usart2.
 
 ## Iniciando Usart
+
+Usando o Registrador CR1 do módulo Usartx, iremos ativar o tx, rx e por fim a própria Usart.
+
+![Usart_CR1](../imagens/Usart_CR1.PNG)
+
+Para ativar usaremos os bits 2, 3 e 13.
+
+Em código ficaria:
+`Usartx->CR1 |= 0x200C // em binário: 0b0010000000001100`
+
