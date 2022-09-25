@@ -146,4 +146,29 @@ Em código ficaria:
 
 ## Lendo os Dados
 
+Para lermos usamos o registrador DR, mas antes precisamos verificar se o dado foi recebido e esperar. Para 
+isso usamos o registrador SR do módulo Usartx.
+
+![Usart_SR](../imagens/Usart_SR.PNG)
+
+Verificamos o bit 5 do registrador SR, e se ele estiver setado, fazemos a leitura.
+
+Exemplo de código:
+
+        while(!(USART2->SR & 0x20));
+        int leitura = USART->DR;
+
 ## Escrevendo os Dados
+
+Para escrevermos faremos algo semelhante a operação de leitura, em que esperaremos a flag de que os dados já 
+foram para shift register, e que podemos inserir mais dados, usando o registrador SR
+
+![Usart_SR](../imagens/Usart_SR.PNG)
+
+Verificamos o bit 7 do registrador SR, e se ele estiver setado, fazemos a escrita. Lembrando que é bom utilizar
+char para a escrita.
+
+Exemplo de código:
+
+        while(!(USART2->SR & 0x80));
+        USART->DR = (char & 0xFF);
