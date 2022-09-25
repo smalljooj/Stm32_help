@@ -112,7 +112,7 @@ várias e usa o sinal que apareceu mais vezes, exemplo: 1011, ele lerá como 1 e
 O stm32 pode trabalhar com 2 oversamplings, o de 8 e o de 16, por padrão ele usa o de 16. Para setar o oversampling
 de 8 usamos o bit 15 do registrador CR1 do Módulo Usartx.
 
-![Usart_BRR](../imagens/Usart_CR1.PNG)
+![Usart_CR1](../imagens/Usart_CR1.PNG)
 
 Então com o oversampling padrão de 16 e o clock padrão de 16MHz usando o baud rate de 9600, temos:
 
