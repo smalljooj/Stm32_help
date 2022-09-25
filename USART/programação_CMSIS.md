@@ -16,12 +16,14 @@ Para configurar o Usart para o uso, seguimos os seguinte passos:
 ## Habilitando o Clock da Usart
 
 É feito usando o Módulo RCC(Reset and clock control) e o registrador que habilita o clock
-no barramento APB1 que é o barramento de baixa velocidade onde as Usarts estão conectadas.
+no barramento APB1 ou APB2 dependendo da Usart.
 
-O Registrador é chamado de APB1ENR e com ele podemos habilitar e configurar alguns periféricos.
-As Usarts são habilitados do bit 17 ao bit 20.
+Os Registradores são chamados de APB1ENR e APB2ENR com eles podemos habilitar e configurar alguns periféricos.
+As Usarts são habilitados do bit 17 ao bit 20 do APB1ENR e bits 4 e 5 do APB2ENR.
 
 ![APB1ENR](../imagens/APB1ENR.PNG)
+
+![APB2ENR](../imagens/APB2ENR.PNG)
 
 Para por exemplo habilitar a Usart 2, podemos escrever o seguinte:  
 `RCC->APB1ENR |= 0x20000`
