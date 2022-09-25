@@ -92,4 +92,41 @@ Para definir o pino PA2 e PA3 como Usart, pode ser feito da seguinte forma:
 
 ## Configurando Baud rate
 
+Para configurar o Baud rate usamos o registrador BRR do módulo Usartx
 
+![Usart_BRR](../imagens/Usart_BRR.PNG)
+
+O registrador é separado em duas partes a mantissa e a fraction. A mantissa representará 
+a parte inteira e a fraction a fração.
+
+Para calcularmos o baud rate devemos dividir o clock do APB que estamos usando pelo oversampling e o
+baud rate que queremos.
+
+Ex: `16000000 / (oversampling * 96000)`
+
+O oversampling é a taxa de amostragem que será usada para definir o bit. Se usarmos oversampling de 8, o
+stm32 irá utilizar 8 sinais de clock para definir o bit, se usarmos oversampling de 16 ele usará 16 sinais 
+de clock. Isso serve para reduzir erros provenientes de ruídos, pois em vez dele ler uma vez apenas, ele lê
+várias e usa o sinal que apareceu mais vezes, exemplo: 1011, ele lerá como 1 e ativará a flag de ruído NE.
+
+O stm32 pode trabalhar com 2 oversamplings, o de 8 e o de 16, por padrão ele usa o de 16. Para setar o oversampling
+de 8 usamos o bit 15 do registrador CR1 do Módulo Usartx.
+
+![Usart_BRR](../imagens/Usart_CR1.PNG)
+
+Então com o oversampling padrão de 16 e o clock padrão de 16MHz usando o baud rate de 9600, temos:
+
+Ex: `float div = 16000000 / (16 * 9600) // div será igual a 104.16667`
+
+A parte inteira será colocada na mantissa:
+
+`Usart2->BRR |= ((int) div ) >> 4 // deslocado de 4 para ele ficar na parte da mantissa`
+
+A parte fracionaria devemos multiplicar por 16 e arredondar. Para isso podemos somar 0.5 e truncar para inteiro, pois
+ao truncar ele sempre "arredonda" para baixo.
+
+`Usart2->BRR |= (int) (div + 0.5)` 
+
+Assim configuramos o baud rate de 9600 para Usart2.
+
+## Iniciando Usart
