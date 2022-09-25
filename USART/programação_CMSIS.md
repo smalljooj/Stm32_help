@@ -33,6 +33,8 @@ Isso irá habilitar apenas a Usart 2 sem interferir em nenhuma outra configuraç
 É feito usando o modulo do GPIO em questão, e o registrador MODER. Mas antes precisamos abilitar o clock
 do GPIO em questão.
 
+Usando o RCC AHB1ENR:
+
 ![AHB1ENR](../imagens/HB1ENR.PNG)
 
 Depois configuramos o Modo.
