@@ -1,7 +1,7 @@
 # Programação em CMSIS 
 
 - [Configurar o Usart](#Configurando-o-Usart)
-- [Usar o Usart](#Usando-o-Usart)
+- [Usar a Usart](#Usando-a-Usart)
 
 # Configurando o Usart
 
@@ -118,8 +118,7 @@ Então com o oversampling padrão de 16 e o clock padrão de 16MHz usando o baud
 
 Ex: `float div = 16000000 / (16.0 * 9600) // div será igual a 104.16667`
 
-A parte inteira será colocada na mantissa:
-
+A parte inteira será colocada na mantissa:  
 `Usart2->BRR |= ((int) div ) << 4 // deslocado de 4 para ele ficar na parte da mantissa`
 
 A parte fracionaria devemos multiplicar por 16 e arredondar. Para isso podemos somar 0.5 e truncar para inteiro, pois
@@ -137,6 +136,14 @@ Usando o Registrador CR1 do módulo Usartx, iremos ativar o tx, rx e por fim a p
 
 Para ativar usaremos os bits 2, 3 e 13.
 
-Em código ficaria:
+Em código ficaria:  
 `Usartx->CR1 |= 0x200C // em binário: 0b0010000000001100`
 
+# Usando a Usart
+
+- [Ler os Dados](#Lendo-os-Dados)
+- [Escrever os Dados](#Escrevendo-os-Dados)
+
+## Lendo os Dados
+
+## Escrevendo os Dados
