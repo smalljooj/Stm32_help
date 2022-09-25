@@ -120,7 +120,7 @@ Ex: `float div = 16000000 / (16 * 9600) // div será igual a 104.16667`
 
 A parte inteira será colocada na mantissa:
 
-`Usart2->BRR |= ((int) div ) >> 4 // deslocado de 4 para ele ficar na parte da mantissa`
+`Usart2->BRR |= ((int) div ) << 4 // deslocado de 4 para ele ficar na parte da mantissa`
 
 A parte fracionaria devemos multiplicar por 16 e arredondar. Para isso podemos somar 0.5 e truncar para inteiro, pois
 ao truncar ele sempre "arredonda" para baixo.
