@@ -47,11 +47,45 @@ podem ser:
 - 10 -> FUNCTION (Função)
 - 11 -> ANALOG (Analógica)
 
-Devemos colocar como função auxiliar e com o registrador AFR[] iremos configurar como USART.
+Devemos colocar como função auxiliar.
+
+Depois devemos configurar a função que irá receber, isto é feito usando 2 registradores o AFRH
+e o AFRL, sendo o L a parte dos bits menos significativos e o H os mais significativos.
 
 
+![AFRH](../imagens/AFRH.PNG)
 
-Para definir o pino 2 e 3 do como saida, pode ser feito da seguinte forma:  
-`GPIOA->MODER |= 0x0010 // em binário ficaria assim -> 0b00010000`
+![AFRL](../imagens/AFRL.PNG)
 
-## Definindo a velocidade da saída
+Para definir as funções de cada pino usamos 4 bits, que podem ser
+
+- 0000 -> AF0
+- 0001 -> AF1
+- 0010 -> AF2
+- 0011 -> AF3
+- 0100 -> AF4
+- 0101 -> AF5
+- 0110 -> AF6
+- 0111 -> AF7
+- 1000 -> AF8
+- 1001 -> AF9
+- 1010 -> AF10
+- 1011 -> AF11
+- 1100 -> AF12
+- 1101 -> AF13
+- 1110 -> AF14
+- 1111 -> AF15
+
+As funções são:
+
+![Funções](../imagens/Funções.PNG)
+
+
+Para definir o pino PA2 e PA3 do como Usart, pode ser feito da seguinte forma:  
+
+    GPIOA->MODER |= 0x00A0 // em binário ficaria assim -> 0b10100000
+    GPIOA->AFRL |= 0x7700 // em binário ficaria assim -> 0b0111011100000000
+
+## Configurando Baud rate
+
+
