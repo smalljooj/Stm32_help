@@ -39,7 +39,7 @@ Para configurarmos iremos seguir os seguintes passos:
 - Determinar o oversampling
 
 Todos são campos da estrutura que definimos. Lembrando que no final estará 
-as macros para configurar os campos. Clique Aqui.
+as macros para configurar os campos. [Clique Aqui](#Macros).
 
 ### Atribuir a Instancia
 
@@ -93,6 +93,50 @@ Ex: `HAL_UART_Init(&usart)`
 
 # Usando a Usart
 
-- [Escrever na Usart](#Escrevendo-no-Pino)
-- [Ler da Usart](#Lendo-o-Pino)
+- [Escrever na Usart](#Escrevendo-na-Usart)
+- [Ler da Usart](#Lendo-da-Usart)
 
+## Escrevendo na Usart
+
+Para escrevermos na usart usamos a Função HAL_UART_Transmit, nela passaremos a 
+estrutura, a mensagem, a quantidade de caracteres e o tempo de timeout.
+
+Ex: `HAL_UART_Transmit(&usart, (uint8_t *) msg, 20, 100);`
+
+## Lendo da Usart
+
+Para ler usamos a Função HAL_UART_Receive, nela passamos a estrutura, a variavel de
+buffer, a quantidade e o tempo de timeout.
+
+Ex `HAL_UART_Receive (&usart, msg, 12, 100)`
+
+# Macros
+
+## Usart Mode
+
+- USART_MODE_RX 
+- USART_MODE_TX
+- USART_MODE_TX_RX
+
+## Usart Parity
+
+- USART_PARITY_NONE
+- USART_PARITY_EVEN
+- USART_PARITY_ODD
+
+## Usart StopBits
+
+- USART_STOPBITS_1 
+- USART_STOPBITS_0_5 
+- USART_STOPBITS_2
+- USART_STOPBITS_1_5
+
+## Usart Word Length
+
+- USART_WORDLENGTH_8B 
+- USART_WORDLENGTH_9B
+
+## Usart OverSampling
+
+- USART_OVERSAMPLING_16
+- USART_OVERSAMPLING_8
