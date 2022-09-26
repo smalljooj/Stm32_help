@@ -91,9 +91,11 @@ Exemplo de configuração para 8 bits de resolução:
 ### Scan Mode
 
 O Scan mode faz com que as entradas programadas nos registradores ADC_SQRx ou ADC_JSQRx sejam
-convertidas. Para habilitar escrevemos no bit 8 do registrador CR1:
+convertidas automaticamente. Para habilitar escrevemos no bit 8 do registrador CR1:
 
 `ADCx->CR1 |= 0x0100`
+
+No nosso caso não utilizaremos.
 
 ## Definindo sequencia de conversão
 
