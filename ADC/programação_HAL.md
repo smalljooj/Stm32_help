@@ -122,7 +122,7 @@ Iniciamos o ADC usando a função HAL_ADC_Start passando a estrutura do ADC:
 
 E para ler uma conversão única podemos usar a função HAL_ADC_PollForConversion, passando
 a estrutura do adc e o tempo de timeout:  
-`HAL_ADC_PollForConversion(&adc, 100);`
+`int leitura = HAL_ADC_PollForConversion(&adc, 100);`
 
 # Macros
 
