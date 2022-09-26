@@ -120,9 +120,12 @@ estrutura de configuração de canal.
 Iniciamos o ADC usando a função HAL_ADC_Start passando a estrutura do ADC:  
 `HAL_ADC_Start(&adc);`
 
-E para ler uma conversão única podemos usar a função HAL_ADC_PollForConversion, passando
+E para iniciar uma conversão única podemos usar a função HAL_ADC_PollForConversion, passando
 a estrutura do adc e o tempo de timeout:  
 `int leitura = HAL_ADC_PollForConversion(&adc, 100);`
+
+Por fim para pegar a leitura usamos a função HAL_ADC_GetValue, passando o adc:  
+`int leitura = HAL_ADC_GetValue(&adc)`
 
 # Macros
 
