@@ -26,7 +26,7 @@ iremos utilizar uma estrutura, mas agora chamada de USART_HandleTypeDef.
 Essa estrutura irá ser utilizada tanto para configurar e inicializar como
 para utilizar a USART, por isso é interessante declarar no topo do programa.
 
-`USART_HandleTypeDef usart;`
+`UART_HandleTypeDef usart;`
 
 Para configurarmos iremos seguir os seguintes passos:
 
