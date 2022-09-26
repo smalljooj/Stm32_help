@@ -192,7 +192,7 @@ Para inicar a conversão usamos o Módulo ADCx e o bit 30 do registrador CR2:
 ## Esperando a Conversão
 
 Criamos um loop para esperar até a conversão estar pronta para evitar problemas:  
-`while(!(ADCx-SR & 0x1))`
+`while(!(ADCx->SR & 0x1))`
 
 ## Lendo a Conversão
 
